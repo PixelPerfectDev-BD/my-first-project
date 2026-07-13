@@ -1,5 +1,2 @@
 
-# আজকের অ্যাক্সেস কোড:
-`A1RZ-49TL`
-
-[ক্লিক করে আপনার হোয়াটসঅ্যাপে যান](https://web.whatsapp.com)
+[https://web.whatsapp.com/](https://web.whatsapp.com/)
