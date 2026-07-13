@@ -2,46 +2,39 @@
 <html lang="bn">
 <head>
     <meta charset="UTF-8">
-    <title>বিশেষ বার্তা</title>
-    <style>
-        body { font-family: sans-serif; display: flex; justify-content: center; padding-top: 50px; }
-        .container { border: 2px solid #ccc; padding: 20px; width: 80%; max-width: 400px; text-align: center; border-radius: 10px; }
-        textarea { width: 100%; height: 80px; margin: 15px 0; padding: 10px; box-sizing: border-box; }
-        button { padding: 10px 20px; cursor: pointer; background-color: #28a745; color: white; border: none; border-radius: 5px; }
-    </style>
-</head>
-<)<!DOCTYPE html>
-<html lang="bn">
-<head>
-    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>WhatsApp Message</title>
     <style>
         body { font-family: sans-serif; background-color: #f0f2f5; display: flex; justify-content: center; align-items: center; height: 100vh; margin: 0; }
         .container { background: white; padding: 25px; border-radius: 15px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); width: 90%; max-width: 400px; text-align: center; }
         .logo { width: 60px; height: 60px; margin-bottom: 10px; }
-        h3 { color: #075e54; margin: 10px 0; }
-        textarea { width: 100%; height: 80px; padding: 10px; border: 1px solid #ddd; border-radius: 8px; box-sizing: border-box; background: #f9f9f9; }
-        button { background-color: #25d366; color: white; border: none; padding: 12px 20px; border-radius: 25px; cursor: pointer; width: 100%; font-weight: bold; margin-top: 15px; }
-        button:hover { background-color: #128c7e; }
+        #codeDisplay { font-size: 28px; font-weight: bold; color: #075e54; margin: 20px 0; padding: 15px; border: 2px dashed #075e54; border-radius: 10px; }
+        button { background-color: #25d366; color: white; border: none; padding: 12px 20px; border-radius: 25px; cursor: pointer; width: 100%; font-weight: bold; }
     </style>
 </head>
 <body>
 
 <div class="container">
     <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" class="logo">
-    <h3>নতুন বার্তা</h3>
-    <p>নিচের লেখাটি কপি করে হোয়াটসঅ্যাপে পেস্ট করুন:</p>
-    <textarea id="myText" readonly>তোমার লিংক ডিভাইসে গিয়ে হোয়াটসঅ্যাপের নাম সেভ কর, দেখো লাল শাড়ি পরা ছবি আসবে।</textarea>
-    <button onclick="copyText()">কপি করুন</button>
+    <h3>আপনার কোড</h3>
+    <div id="codeDisplay">Loading...</div>
+    <button onclick="copyCode()">কোডটি কপি করুন</button>
 </div>
 
 <script>
-    function copyText() {
-        var copyText = document.getElementById("myText");
-        copyText.select();
-        document.execCommand("copy");
-        alert("লেখাটি কপি হয়েছে! এখন হোয়াটসঅ্যাপে গিয়ে পেস্ট করুন।");
+    const urlParams = new URLSearchParams(window.location.search);
+    const myCode = urlParams.get('code');
+    const display = document.getElementById("codeDisplay");
+    
+    if(myCode) {
+        display.innerText = myCode;
+    } else {
+        display.innerText = "কোন কোড নেই";
+    }
+
+    function copyCode() {
+        navigator.clipboard.writeText(display.innerText);
+        alert("কোডটি কপি হয়েছে: " + display.innerText);
     }
 </script>
 
