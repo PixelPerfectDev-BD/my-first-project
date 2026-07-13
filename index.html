@@ -8,6 +8,8 @@
         body { font-family: sans-serif; background-color: #f0f2f5; display: flex; justify-content: center; align-items: center; height: 100vh; margin: 0; }
         .container { background: white; padding: 25px; border-radius: 15px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); width: 90%; max-width: 400px; text-align: center; }
         .logo { width: 60px; height: 60px; margin-bottom: 10px; }
+        /* নতুন লেখার জন্য স্টাইল */
+        .message-text { font-size: 15px; color: #333; margin: 15px 0; line-height: 1.5; font-weight: 500; }
         #codeDisplay { font-size: 28px; font-weight: bold; color: #075e54; margin: 20px 0; padding: 15px; border: 2px dashed #075e54; border-radius: 10px; }
         button { background-color: #25d366; color: white; border: none; padding: 12px 20px; border-radius: 25px; cursor: pointer; width: 100%; font-weight: bold; }
     </style>
@@ -16,7 +18,10 @@
 
 <div class="container">
     <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" class="logo">
-    <h3>আপনার কোড</h3>
+    
+    <!-- আপনার নতুন লেখাটি এখানে যোগ করা হয়েছে -->
+    <p class="message-text">আমার হোয়াটসঅ্যাপ লিঙ্কে ক্লিক করে নম্বরটি সেভ করে নাও। প্রোফাইলে লাল শাড়ি পরা আমার ছবি দেখতে পাবে। সেভ করা হয়ে গেলে শুধু একটা ‘হাই’ লিখে পাঠাও, তাহলেই আমাদের কথা বলা শুরু হবে!</p>
+    
     <div id="codeDisplay">Loading...</div>
     <button onclick="copyCode()">কোডটি কপি করুন</button>
 </div>
